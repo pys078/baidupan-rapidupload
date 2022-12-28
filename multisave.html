@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
         <h1>百度网盘秒传链接批量转存</h1>
-        <p id="version">v1.2 mengzonefire version</p>
+        <p id="version">v1.3 mengzonefire version</p>
         <p><b>请先阅读 <a href="./manual.html" target="_blank">使用教程</b></a><br></p>
         <p><a href="./index.html">秒传转存</a> <a href="./gen.html">秒传生成</a> <a href="./convert.html">秒传转换</a>
         </p>
@@ -72,7 +72,7 @@
   <script src="https://cdn.staticfile.org/twitter-bootstrap/5.2.0/js/bootstrap.min.js"></script>
   <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.2/base64.js"></script>
-  <script src="./common/Tools.js?version=1.2"></script>
+  <script src="./common/Tools.js?version=1.3"></script>
   <script>
     function inital() {
       $('#bdstoken').val(localStorage.getItem('Blink_bdstoken'));
@@ -101,13 +101,13 @@
             file.md5,
             file.md5s,
             file.size,
-            savePath + file.path
+            savePath + file.path.replace(illegalPathPattern, "_")
           );
         } else if (api === 'api2' || !file.md5s || file.size > 21474836480) {
           saveFile2(
             file.md5,
             file.size,
-            savePath + file.path
+            savePath + file.path.replace(illegalPathPattern, "_")
           );
         }
       });

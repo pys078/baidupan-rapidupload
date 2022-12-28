@@ -1,17 +1,18 @@
 /*
  * @Author: mengzonefire
  * @Date: 2021-10-14 16:36:56
- * @LastEditTime: 2022-12-05 15:00:49
+ * @LastEditTime: 2022-12-28 13:50:12
  * @LastEditors: mengzonefire
  * @Description: 共用JS工具库
  */
 
-const version = "1.2";
+const version = "1.3";
 const updateUrl =
   "https://api.github.com/repos/mengzonefire/baidupan-rapidupload/releases/latest";
 const releasePage =
   "https://github.com/mengzonefire/baidupan-rapidupload/releases/tag/";
 const bdlinkPattern = /#bdlink=([\da-zA-Z+/=]+)/u; // b64可能出现的字符: 大小写字母a-zA-Z, 数字0-9, +, /, = (=用于末尾补位)
+const illegalPathPattern = /[\\":*?<>|]/gu; // 匹配路径中的非法字符
 
 function checkBdstoken(bdstoken) {
   if (!bdstoken || /^[\da-z]{32}$/u.test(bdstoken)) {
