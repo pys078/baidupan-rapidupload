@@ -1,12 +1,12 @@
 /*
  * @Author: mengzonefire
  * @Date: 2021-10-14 16:36:56
- * @LastEditTime: 2022-12-28 13:50:12
+ * @LastEditTime: 2023-01-14 21:29:51
  * @LastEditors: mengzonefire
  * @Description: 共用JS工具库
  */
 
-const version = "1.3";
+const version = "1.4";
 const updateUrl =
   "https://api.github.com/repos/mengzonefire/baidupan-rapidupload/releases/latest";
 const releasePage =
@@ -112,6 +112,34 @@ function saveFile2(md5, size, path, bdstoken) {
 }
 
 /**
+ * @description: 解密已加密的md5
+ */
+function decryptMd5(md5) {
+  if (
+    !(
+      (parseInt(md5[9]) >= 0 && parseInt(md5[9]) <= 9) ||
+      (md5[9] >= "a" && md5[9] <= "f")
+    )
+  )
+    return decrypt(md5);
+  else return md5;
+
+  function decrypt(encryptMd5) {
+    let key = (encryptMd5[9].charCodeAt(0) - "g".charCodeAt(0)).toString(16);
+    let key2 = encryptMd5.slice(0, 9) + key + encryptMd5.slice(10);
+    let key3 = "";
+    for (let a = 0; a < key2.length; a++)
+      key3 += (parseInt(key2[a], 16) ^ (15 & a)).toString(16);
+    let md5 =
+      key3.slice(8, 16) +
+      key3.slice(0, 8) +
+      key3.slice(24, 32) +
+      key3.slice(16, 24);
+    return md5;
+  }
+}
+
+/**
  * @description: 从url中解析秒传链接
  */
 function parseQueryLink(url) {
@@ -211,21 +239,25 @@ class DuParser {
   static parseDu_v4(szUrl) {
     return szUrl
       .split("\n")
-      .map((z) =>
-        z
+      .map(function (z) {
+        return z
           .trim()
           .match(
-            /^([\dA-Fa-f]{32})#(?:([\dA-Fa-f]{32})#)?([\d]{1,20})#([\s\S]+)/u
-          )
-      )
-      .filter((z) => z)
-      .map((info) => ({
-        // 标准码 / 短版标准码(无md5s)
-        md5: info[1],
-        md5s: info[2] || "",
-        size: info[3],
-        path: info[4],
-      }));
+            /^([\da-f]{9}[\da-z][\da-f]{22})#(?:([\da-f]{32})#)?([\d]{1,20})#([\s\S]+)/iu
+          ); // 22.8.29新增支持第10位为g-z的加密md5, 输入后自动解密转存
+      })
+      .filter(function (z) {
+        return z;
+      })
+      .map(function (info) {
+        return {
+          // 标准码 / 短版标准码(无md5s)
+          md5: decryptMd5(info[1].toLowerCase()),
+          md5s: info[2] || "",
+          size: info[3],
+          path: info[4],
+        };
+      });
   }
 }
 

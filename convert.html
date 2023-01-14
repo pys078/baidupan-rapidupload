@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
           <h1>百度网盘秒传链接转换</h1>
-          <p id="version">v1.3 mengzonefire version</p>
+          <p id="version">v1.4 mengzonefire version</p>
           <p><b>请先阅读 <a href="./manual.html" target="_blank">使用教程</b></a><br></p>
           <p><a href="./index.html">秒传转存</a> <a href="./multisave.html">批量转存</a> <a href="./gen.html">秒传生成</a></p>
         </div>
@@ -54,7 +54,8 @@
       function getLink(link, backcall) {
         const bdpan = link.match(/bdpan:\/\/(.+)/u);
         const pcs = link.match('BaiduPCS-Go');
-        const mengji = link.match(/.{32}#.{32}/u);
+        const mengji = link.match(/^[\da-f]{32}#[\da-f]{32}#[\d]+#[\s\S]+/iu);
+        const mengji_short = link.match(/^[\da-z]{32}#[\d]+#[\s\S]+/iu);
         if (bdpan !== null) {
           const de_b64 = atou(bdpan[1]);
           const md5 = de_b64.match(/\|(.{32})\|/u)[1];
@@ -80,6 +81,10 @@
           file_name = Trim(file_name);
           backcall(md5, slicemd5, file_length, file_name);
         }
+        else if(mengji_short)
+          $('#convert').append("此行检测到简化版标准码, 不支持转换\n")
+        else
+          $('#convert').append("此行未检测到有效的秒传链接\n")
       }
       function convertpcs(md5, slicemd5, file_length, file_name) {
         return `BaiduPCS-Go rapidupload -length=${file_length} -md5=${md5} -slicemd5=${slicemd5} "/${file_name}"`;
