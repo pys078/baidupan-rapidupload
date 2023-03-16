@@ -1,12 +1,12 @@
 /*
  * @Author: mengzonefire
  * @Date: 2021-10-14 16:36:56
- * @LastEditTime: 2023-01-14 21:29:51
+ * @LastEditTime: 2023-03-16 14:21:39
  * @LastEditors: mengzonefire
  * @Description: 共用JS工具库
  */
 
-const version = "1.4";
+const version = "1.5";
 const updateUrl =
   "https://api.github.com/repos/mengzonefire/baidupan-rapidupload/releases/latest";
 const releasePage =
@@ -99,7 +99,7 @@ function saveFile(md5, md5s, size, path, bdstoken) {
 
 function saveFile2(md5, size, path, bdstoken) {
   openPostWindow(
-    `https://pan.baidu.com/rest/2.0/xpan/file?method=create${
+    `https://pan.baidu.com/api/create${
       bdstoken ? "&bdstoken=" + bdstoken : ""
     }`,
     {
