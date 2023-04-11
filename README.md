@@ -4,7 +4,7 @@
 
 [示例站点1](https://mengzonefire.github.io/baidupan-rapidupload)
 
-[示例站点2(可能不是最新版本)](http://rapidacg.gmgard.moe/)
+[示例站点2(可能不是最新版本)](https://rapidacg.gmgard.moe/)
 
 [示例站点3](https://mengzonefire.code.misakanet.cn/baidupan-rapidupload)
 
