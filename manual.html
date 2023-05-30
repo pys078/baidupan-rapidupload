@@ -6,16 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>使用教程 - 百度网盘秒传链接转存</title>
   <meta name="description" content="百度网盘秒传链接在线转存/生成/转换，支持iOS/Android/PC and more">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">百度网盘秒传链接</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">转存</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./multisave.html">批量转存</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./gen.html">秒传生成</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./convert.html">秒传转换</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">使用教程
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="container">
     <div class="row">
+      <p></p>
       <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
         <h1>本站使用教程</h1>
-        <p>v1.5 mengzonefire version</p>
-        <p><a href="./">返回首页</a><br>
       </div>
       <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
       </div>
@@ -25,11 +53,8 @@
             <b>1. 如何转存秒传链接？</b>
           </a></p>
         <div id="collapseOne" class="panel-collapse collapse in">
-          填入 秒传链接, 转存路径, 点击'解析链接并转存',<br>转存后弹窗显示的"errno"(错误码)即转存结果:<br>{"errno":0} 为转存成功, 其余转存失败的errno请参考文档: <a
-            href="https://mengzonefire.code.misakanet.cn/rapid-upload-userscript-doc/document/FAQ/错误代码(网页工具).html"
-            rel="noopener noreferrer" target="_blank">载点1</a> <a
-            href="https://xtsat.github.io/rapid-upload-userscript-doc/document/FAQ/错误代码(网页工具).html"
-            rel="noopener noreferrer" target="_blank">载点2</a>
+          填入 秒传链接, 转存路径, 点击'解析链接并转存',<br>转存后弹窗显示的"errno"(错误码)即转存结果:<br>{"errno":0} 为转存成功, 其余转存失败的errno请见<a
+          href="https://xtsat.github.io/rapid-upload-userscript-doc/document/FAQ/错误代码(网页工具).html" target="_blank">参考文档</a>
         </div>
         <p><a data-bs-toggle="collapse" data-parent="#body" href="#collapseTwo">
             <b>2. 如何生成秒传链接？</b>
@@ -41,15 +66,13 @@
         </div>
         <p><a data-bs-toggle="collapse" data-parent="#body" href="#collapseThree"><b>3. 支持哪些秒传链接格式?</b></a></p>
         <div id="collapseThree" class="panel-collapse collapse in">
-          见秒传文档: <a href="https://mengzonefire.code.misakanet.cn/rapid-upload-userscript-doc/document/Info/秒传格式"
-            class="mzf_link" rel="noopener noreferrer" target="_blank">载点1</a>
-          <a href="https://xtsat.github.io/rapid-upload-userscript-doc/document/Info/秒传格式" class="mzf_link"
-            rel="noopener noreferrer" target="_blank">载点2</a>
+          见<a href="https://xtsat.github.io/rapid-upload-userscript-doc/document/Info/秒传格式" target="_blank">秒传文档</a> 
         </div>
         <br>
         <h4>工具说明</h4>
-        <p>原作者: <a href="https://t.me/TkzcM/" target="_blank">TkzcM</a>, 当前版本作者: <a
-            href="https://github.com/mengzonefire" target="_blank">mengzonefire</a></p>
+        <p>原作者: <a href="https://t.me/TkzcM/" target="_blank">TkzcM</a>、<a
+            href="https://github.com/mengzonefire" target="_blank">mengzonefire</a>，该版本作者<a
+            href="https://github.com/pys078" target="_blank">pys078</a></p>
         <p>此工具为纯静态页面, <span style="color: red;">不会发送任何数据</span>到网站服务器, 源码: <a
             href="https://github.com/mengzonefire/baidupan-rapidupload" target="_blank">Github</a></p>
         <p>此工具支持 url 传参<b>(一键秒传)</b>, 格式：[网站域名]/#bdlink=[参数], [参数]为 base64 加密过的任意格式链接 (支持批量)</p>
@@ -58,6 +81,9 @@
         <br>
         <h4>更新历史</h4>
         <dl>
+          <dt>v1.6 (23.5.30):</dt>
+          <dd>美化网页</dd>
+
           <dt>v1.5 (23.3.16):</dt>
           <dd>修复#9019报错</dd>
 

@@ -5,16 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>百度网盘秒传链接生成</title>
     <meta name="description" content="百度网盘秒传链接在线转存/生成/转换，支持iOS/Android/PC and more">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">百度网盘秒传链接</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">转存</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./multisave.html">批量转存</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">秒传生成
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./convert.html">秒传转换</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./manual.html">使用教程</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="container">
       <div class="row">
+        <p></p>
         <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
-          <h1>百度网盘秒传链接生成</h1>
-          <p id="version">v1.5 mengzonefire version</p>
-          <p><b>请先阅读 <a href="./manual.html" target="_blank">使用教程</a></b><br></p>
-          <p><a href="./index.html">秒传转存</a> <a href="./multisave.html">批量转存</a> <a href="./convert.html">秒传转换</a></p>
           <p><b>支持批量生成, 需要在度盘中存在相同文件才能使秒传生效!</b></p>
         </div>
         <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
@@ -26,7 +52,6 @@
             <label for="link">秒传链接</label>
             <textarea name="link" id="link" class="form-control" placeholder="生成的链接 " rows="8"></textarea>
           </div>
-          <b>所有请求在用户端进行，服务器不保存任何数据</b>
         </div>
       </div>
     </div>

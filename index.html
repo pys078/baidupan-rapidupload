@@ -6,27 +6,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>百度网盘秒传链接转存</title>
   <meta name="description" content="百度网盘秒传链接在线转存/生成/转换，支持iOS/Android/PC and more">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">百度网盘秒传链接</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">转存
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./multisave.html">批量转存</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./gen.html">秒传生成</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./convert.html">秒传转换</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./manual.html">使用教程</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="container">
     <div class="row">
-      <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
-        <h1>百度网盘秒传链接转存</h1>
-        <p id="version">v1.5 mengzonefire version</p>
-        <p><b>请先阅读 <a href="./manual.html" target="_blank">使用教程</a></b><br></p>
-        <p><a href="./multisave.html">批量转存</a> <a href="./gen.html">秒传生成</a> <a href="./convert.html">秒传转换</a></p>
-      </div>
-      <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
-        <p>1. 若转存显示 <b>{"errno":-6,"request_id":...}:</b></p>
+      <p></p>
+      <div class="alert alert-dismissible alert-warning">
+        <p>若转存显示 <b>{"errno":-6,"request_id":...}:</b></p>
         <p>-> 请在此浏览器<b>打开或刷新</b><a href="https://pan.baidu.com/" target="_blank">度盘页面</a>(若未登陆请登陆)再重试</p>
-        <p>2. 若转存显示 <b>{"errno":-6} 或 {"errno":2,"request_id":...}:</b></p>
+      </div>
+      <div class="alert alert-dismissible alert-warning">
+        <p>若转存显示 <b>{"errno":-6} 或 {"errno":2,"request_id":...}:</b></p>
         <p>-> 请填写<b>bdstoken</b>: <b><a href="https://pan.baidu.com/api/gettemplatevariable?fields=[%22bdstoken%22]"
-              target=_blank>登录度盘网页版后点我获取bdstoken</a></b></p>
+          target=_blank>登录度盘网页版后点我获取bdstoken</a></b></p>
+      </div>
+      <div class="alert alert-dismissible alert-success">
+        <p>转存后弹窗显示的"errno"(错误码)即转存结果:<br>{"errno":0} 为转存成功, 其余转存失败的errno请见<a href="https://xtsat.github.io/rapid-upload-userscript-doc/document/FAQ/错误代码(网页工具).html" target="_blank">参考文档</a>
+      </p>
       </div>
       <div id="body" class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
-        <div id="api">
+        <div id="api" style="display: none;">
           <p>秒传转存接口:
             <label class="checkbox-inline" style="cursor:pointer; margin-left: 10px;">
               <input type="radio" name="inlineRadioOptions" value="api2" checked> 备用接口
@@ -36,7 +66,7 @@
             </label>
           </p>
         </div>
-        <div>
+        <div class="form-group">
           <label for="bdstoken">bdstoken(可选)</label>
           <p><input name="bdstoken" class="form-control" id="bdstoken" placeholder="32位字母数字, 转存出现上述报错时填写"></p>
         </div>
@@ -71,14 +101,6 @@
           <br>
           <p><button onclick="submitData()" class="btn btn-primary">转存</button></p>
         </div>
-      </div>
-      <div id="footer" class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
-        <p>转存后弹窗显示的"errno"(错误码)即转存结果:<br>{"errno":0} 为转存成功, 其余转存失败的errno请参考文档: <a
-            href="https://mengzonefire.code.misakanet.cn/rapid-upload-userscript-doc/document/FAQ/错误代码(网页工具).html"
-            rel="noopener noreferrer" target="_blank">载点1</a> <a
-            href="https://xtsat.github.io/rapid-upload-userscript-doc/document/FAQ/错误代码(网页工具).html"
-            rel="noopener noreferrer" target="_blank">载点2</a><br><b>所有请求在用户端进行，服务器不保存任何数据</b>
-        </p>
       </div>
     </div>
   </div>

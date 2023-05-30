@@ -5,19 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>百度网盘秒传链接生成</title>
     <meta name="description" content="百度网盘秒传链接在线转存/生成/转换，支持iOS/Android/PC and more">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html">百度网盘秒传链接</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">转存</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./multisave.html">批量转存</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./gen.html">秒传生成</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">秒传转换
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./manual.html">使用教程</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
-          <h1>百度网盘秒传链接转换</h1>
-          <p id="version">v1.5 mengzonefire version</p>
-          <p><b>请先阅读 <a href="./manual.html" target="_blank">使用教程</b></a><br></p>
-          <p><a href="./index.html">秒传转存</a> <a href="./multisave.html">批量转存</a> <a href="./gen.html">秒传生成</a></p>
-        </div>
-        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
-        </div>
         <div id="body" class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 text-center">
           <div class="form-group">
             <label for="link">秒传链接</label>
@@ -32,10 +53,10 @@
               <input type="radio" class="btn-check" name="btnradio" id="mengji" autocomplete="off">
               <label class="btn btn-outline-primary" for="mengji">梦姬</label>
             </div>
+            <br><br>
             <p><button class="btn btn-primary" onclick="convert()">转换</button>
             <p><textarea name="convert" id="convert" class="form-control" placeholder="转换后的链接" rows="8"></textarea></p>
           </div>
-          <p><b>所有请求在用户端进行，服务器不保存任何数据</b></p>
         </div>
       </div>
     </div>
